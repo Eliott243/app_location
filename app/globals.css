@@ -1,0 +1,158 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Plus Jakarta Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Plus Jakarta Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --color-navy: var(--navy);
+  --color-cta: var(--cta);
+  --color-cta-foreground: var(--cta-foreground);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.15);
+  --radius-2xl: calc(var(--radius) * 1.4);
+  --radius-3xl: calc(var(--radius) * 1.8);
+  --radius-4xl: calc(var(--radius) * 2.2);
+}
+
+:root {
+  --navy: #14375e;
+  --cta: #f28c28;
+  --cta-foreground: #14375e;
+  --background: #f5f6f9;
+  --foreground: #14375e;
+  --card: #ffffff;
+  --card-foreground: #14375e;
+  --popover: #ffffff;
+  --popover-foreground: #14375e;
+  --primary: #14375e;
+  --primary-foreground: #ffffff;
+  --secondary: #eef0f4;
+  --secondary-foreground: #14375e;
+  --muted: #eef0f4;
+  --muted-foreground: #5a6b80;
+  --accent: #eef0f4;
+  --accent-foreground: #14375e;
+  --destructive: #b42318;
+  --border: #e2e6ee;
+  --input: #e2e6ee;
+  --ring: #f28c28;
+  --chart-1: #14375e;
+  --chart-2: #f28c28;
+  --chart-3: #5a6b80;
+  --chart-4: #8aa0b8;
+  --chart-5: #d7dde8;
+  --radius: 0.875rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #14375e;
+  --sidebar-primary: #14375e;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #eef0f4;
+  --sidebar-accent-foreground: #14375e;
+  --sidebar-border: #e2e6ee;
+  --sidebar-ring: #f28c28;
+}
+
+.dark {
+  --navy: #d7e3f0;
+  --cta: #f28c28;
+  --cta-foreground: #0b1a2d;
+  --background: #0b1a2d;
+  --foreground: #f5f6f9;
+  --card: #12263f;
+  --card-foreground: #f5f6f9;
+  --popover: #12263f;
+  --popover-foreground: #f5f6f9;
+  --primary: #f5f6f9;
+  --primary-foreground: #14375e;
+  --secondary: #1a304c;
+  --secondary-foreground: #f5f6f9;
+  --muted: #1a304c;
+  --muted-foreground: #b7c4d4;
+  --accent: #1a304c;
+  --accent-foreground: #f5f6f9;
+  --destructive: #f97066;
+  --border: rgb(255 255 255 / 10%);
+  --input: rgb(255 255 255 / 12%);
+  --ring: #f28c28;
+  --chart-1: #f28c28;
+  --chart-2: #d7e3f0;
+  --chart-3: #8aa0b8;
+  --chart-4: #5a6b80;
+  --chart-5: #1a304c;
+  --sidebar: #12263f;
+  --sidebar-foreground: #f5f6f9;
+  --sidebar-primary: #f28c28;
+  --sidebar-primary-foreground: #0b1a2d;
+  --sidebar-accent: #1a304c;
+  --sidebar-accent-foreground: #f5f6f9;
+  --sidebar-border: rgb(255 255 255 / 10%);
+  --sidebar-ring: #f28c28;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--cta);
+    outline-offset: 2px;
+  }
+}
+
+/* Leaflet search map — price pills */
+.leaflet-price-pill-wrap {
+  background: transparent !important;
+  border: none !important;
+}
+.leaflet-container {
+  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  background: #e8eef5;
+  width: 100%;
+  height: 100%;
+}

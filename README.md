@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Néhémie Immobilier
 
-## Getting Started
+Plateforme web de **location & vente immobilière et automobiles à Kinshasa**.  
+Recherche sur carte, fiches biens, offre de lancement avec calculateur de paiement, et contact WhatsApp direct.
 
-First, run the development server:
+**Repo :** [github.com/Eliott243/app_location](https://github.com/Eliott243/app_location)
+
+---
+
+## Aperçu
+
+| Accueil | Recherche + carte |
+| :---: | :---: |
+| ![Accueil](docs/screenshots/01-accueil.png) | ![Recherche](docs/screenshots/02-recherche.png) |
+
+| Véhicules | Offre de lancement |
+| :---: | :---: |
+| ![Véhicules](docs/screenshots/03-vehicules.png) | ![Projet / offre](docs/screenshots/04-projet.png) |
+
+| Fiche bien | Contact |
+| :---: | :---: |
+| ![Fiche](docs/screenshots/06-fiche-bien.png) | ![Contact](docs/screenshots/05-contact.png) |
+
+---
+
+## Fonctionnalités
+
+- **Immobilier** — appartements, maisons, immeubles, terrains (filtres type / commune / prix / chambres / meublé)
+- **Carte interactive** (Leaflet) — pastilles prix, survol liste ↔ carte, recherche dans la zone
+- **Fiches biens** — galerie photos, caractéristiques, CTA WhatsApp « Demander une visite »
+- **Véhicules** — catalogue automobile avec fiches dédiées
+- **Offre de lancement** — appartements meublés, acompte 10 %, 45 mensualités + calculateur
+- **Contact WhatsApp** — bouton fixe + messages préremplis
+- **i18n** FR / EN
+- **Admin** (stub) pour la suite back-office
+
+---
+
+## Stack
+
+| Couche | Techno |
+| --- | --- |
+| Framework | Next.js 16 (App Router) + React 19 |
+| Style | Tailwind CSS 4, design navy / orange |
+| Carte | Leaflet + OpenStreetMap |
+| Images | `next/image` + Unsplash (seed) |
+| Motion | Framer Motion |
+| Données | Seed TypeScript (prêt pour Supabase) |
+
+---
+
+## Démarrage rapide
 
 ```bash
+git clone https://github.com/Eliott243/app_location.git
+cd app_location
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrir [http://127.0.0.1:3000](http://127.0.0.1:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Variables d’environnement
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Voir `.env.example` :
 
-## Learn More
+```env
+NEXT_PUBLIC_AGENCY_NAME=Néhémie Immobilier
+NEXT_PUBLIC_WHATSAPP=243XXXXXXXXX
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Structure du projet
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+app/                 # Pages (accueil, recherche, biens, véhicules, projet, contact, admin)
+components/          # UI, carte, filtres, galerie, layout
+config/              # Marque, formatage prix, WhatsApp
+data/                # Seed listings, photos, communes, offre de lancement
+lib/                 # Listings, filtres, i18n
+messages/            # FR / EN
+docs/screenshots/    # Captures pour la documentation
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Commande | Description |
+| --- | --- |
+| `npm run dev` | Serveur de développement (webpack, sans source maps) |
+| `npm run build` | Build production |
+| `npm start` | Serveur production |
+| `npm run lint` | ESLint |
+
+---
+
+## Captures détaillées
+
+### Accueil
+Hero de marque, CTA vers les biens et l’offre de lancement, accès WhatsApp.
+
+### Recherche immobilière
+Liste filtrable + carte Kinshasa avec pastilles de prix. Clic sur une pastille → popup + lien fiche.
+
+### Fiche bien
+Galerie (salon / chambre / cuisine…), prix, localisation, demande de visite WhatsApp.
+
+### Véhicules
+Catalogue auto (SUV, pick-up…) avec le même parcours contact.
+
+### Offre de lancement
+Unités meublées 1–3 chambres et calculateur (acompte, mensualité, durée).
+
+---
+
+## Roadmap (suite possible)
+
+- [ ] Connexion Supabase (listings réels, admin CRUD)
+- [ ] Upload photos + stockage
+- [ ] Auth admin
+- [ ] Déploiement Vercel / hébergement
+
+---
+
+## Licence
+
+Projet privé — Néhémie Immobilier / Eliott. Tous droits réservés.
